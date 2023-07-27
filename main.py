@@ -1,6 +1,8 @@
 import turtle
 import pandas
 import csv
+from playsound import playsound
+
 screen = turtle.Screen()
 screen.title("P.H. States Game")
 image = "ph-states-game/phil_states.gif"
@@ -31,6 +33,7 @@ while len(correct_guess) < 81:
     correct_guess.append(answer_state)
     final_answer_x = final_answer['x']
     final_answer_y = final_answer['y']
+    n = playsound('ph-states-game\sound_effect_1.mp3', False)
     writer.goto(int(final_answer_x), int(final_answer_y))
     writer.write(answer_state.title())
     title = f"{len(correct_guess)}/81 States Correct"
