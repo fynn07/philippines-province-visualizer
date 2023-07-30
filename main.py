@@ -27,10 +27,10 @@ while len(correct_guess) < 81:
     while initial_holder == True:
         answer_state = screen.textinput(title=title, prompt="Name a state of our dear nation.")
         final_answer = data[data['state'] == answer_state.title()]
-        if not final_answer.empty:
+        if not final_answer.empty and answer_state.title() not in correct_guess:
             initial_holder = False
 
-    correct_guess.append(answer_state)
+    correct_guess.append(answer_state.title())
     final_answer_x = final_answer['x']
     final_answer_y = final_answer['y']
     n = playsound('ph-states-game\sound_effect_1.mp3', False)
